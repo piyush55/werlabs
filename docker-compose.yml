@@ -1,0 +1,7 @@
+werlabs:
+  build: .
+  ports:
+    - '4200:4200'
+  volumes:
+    - .:/home/app/werlabs
+    - /home/app/werlabs/node_modules
