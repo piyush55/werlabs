@@ -1,0 +1,17 @@
+<md-toolbar color="primary">
+  <span>Werlabs</span>
+</md-toolbar>
+<md-input-container class="search-input">
+  <span mdPrefix><md-icon>search</md-icon></span>
+  <input mdInput [(ngModel)]="query" placeholder="Search photos by keyword">
+</md-input-container>
+<button md-raised-button (click)="searchPhotos()">Search</button>
+<md-grid-list cols="5" rowHeight="125px">
+  <md-grid-tile *ngFor="let photo of photos" class="photo-grid" [rowspan]="2" [colspan]="1"
+      >
+      <a [routerLink]="['/photos', photo.id]">
+        <img [src]="photo.image" />
+      </a>
+  </md-grid-tile>
+</md-grid-list>
+
