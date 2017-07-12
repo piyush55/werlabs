@@ -1,6 +1,11 @@
+<md-toolbar color="primary">
+  <span>Werlabs</span>
+  <span class="spacer"></span>
+  <span><img *ngIf='photo' [src]="photo?.owner?.image" /></span>
+  <span class="owner-name">{{photo?.owner?.realname || photo?.owner?.username}}</span>
+</md-toolbar>
 <md-card class="example-card">
   <md-card-header>
-    <md-card-title><h3>{{photo?.owner.realname}}</h3></md-card-title>
     <md-card-title><h4>{{photo?.title._content}}</h4></md-card-title>
     <md-card-subtitle>Taken on {{photo?.dates.taken | date: 'medium' }}</md-card-subtitle>
   </md-card-header>

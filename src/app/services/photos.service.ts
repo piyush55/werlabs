@@ -9,17 +9,15 @@ import { environment } from '../../environments/environment';
 export class PhotosService {
 
   private apiUrl: string = 'https://api.flickr.com/services/rest';
-  private page: number = 1;
     
   constructor(private http: Http) { }
 
-  getPhotos(text): Observable<void> {
+  getPhotos(text, page): Observable<void> {
     let params = new URLSearchParams();
     this.setCommonParams(params);
     params.set('method', 'flickr.photos.search');
     params.set('text', text);
-    params.set('page', this.page.toString());
-    this.page = this.page + 1;
+    params.set('page', page.toString());
     return this.http.get(this.apiUrl, { search: params })
       .map((res:Response) => res.json().photos.photo)
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));

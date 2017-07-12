@@ -6,7 +6,7 @@
   <input mdInput [(ngModel)]="query" placeholder="Search photos by keyword">
   <md-hint *ngIf='errorMessage' class="error">{{errorMessage}}</md-hint>
 </md-input-container>
-<button md-raised-button (click)="searchPhotos()">Search</button>
+<button md-raised-button (click)="getPhotos()">Search</button>
 <md-grid-list cols="5" rowHeight="125px"
         infiniteScroll
 		    (scrolled)="onScroll()">

@@ -24,6 +24,9 @@ export class PhotoDetailsComponent implements OnInit {
     this.photosService.getPhoto(this.id).subscribe(photo => {
       this.photo = photo;
       this.photo['image'] = "https://farm"+this.photo.farm+".staticflickr.com/"+this.photo.server+"/"+this.photo.id+"_"+this.photo.secret+"_z.jpg"
+      let owner = this.photo.owner;
+      this.photo.owner['image'] = "http://farm"+owner.iconfarm+".staticflickr.com/"+owner.iconserver+"/buddyicons/"+owner.nsid+".jpg"
+      console.log(this.photo.owner);
     });
   }
 
