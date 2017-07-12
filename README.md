@@ -16,9 +16,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+## Docker
+Run `docker-compose build` to build docker image.
+After creating image run `docker-compose up` then we can access app on `http://localhost:4200/`.
+
 ## External libraries
 ### @angular/material
 This library used to manage UI. We used some material components: `Toolbar, Grid, Chip, Input Container, Snackbar` etc.
  
 ### ngx-infinite-scroll
 This library used to implement infinite scroll.
+
