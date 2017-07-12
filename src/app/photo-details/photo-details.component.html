@@ -1,0 +1,24 @@
+<md-card class="example-card">
+  <md-card-header>
+    <md-card-title><h3>{{photo?.owner.realname}}</h3></md-card-title>
+    <md-card-title><h4>{{photo?.title._content}}</h4></md-card-title>
+    <md-card-subtitle>Taken on {{photo?.dates.taken | date: 'medium' }}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image *ngIf='photo' [src]="photo?.image" />
+  <md-card-content>
+    <div class="left-panel" [innerHTML]="photo?.description._content"> 
+    </div>
+    <div class="right-panel">
+      <span>{{photo?.views}} <b>Views</b></span>
+      <span>{{photo?.comments._content}} <b>Comments</b></span>
+      <hr />
+      <div class="tags">
+        <h3>Tags</h3>
+        <md-chip-list>
+          <md-chip *ngFor="let tag of photo?.tags?.tag">{{tag.raw}}</md-chip>
+        </md-chip-list>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+  </md-card-content>
+</md-card>

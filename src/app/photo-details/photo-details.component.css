@@ -1,0 +1,19 @@
+.left-panel {
+  width: 45%;
+  float: left;
+}
+.right-panel {
+  width: 45%;
+  float: right;
+}
+.right-panel span {
+  margin-right: 5px;
+}
+.tags {
+  margin-top: 20px;
+}
+md-chip {
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
