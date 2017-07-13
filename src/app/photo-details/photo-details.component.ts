@@ -37,4 +37,8 @@ export class PhotoDetailsComponent implements OnInit {
     });
   }
 
+  updateImageUrl(event) {
+    event.currentTarget.src = 'https://www.flickr.com/images/buddyicon.gif';
+  }
+
 }
