@@ -11,6 +11,7 @@ If `angular-cli` is not already installed in your system then run `npm install -
 `Angular 4`
 
 ## Development server
+Run `npm install` to install required packages.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Testing
