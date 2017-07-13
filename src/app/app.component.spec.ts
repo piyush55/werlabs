@@ -24,7 +24,6 @@ describe('AppComponent', () => {
   });
 
   it('should create', () => {
-    // console.log('created component', component);
     expect(component).toBeTruthy();
   });
 });

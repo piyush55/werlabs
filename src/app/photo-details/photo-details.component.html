@@ -1,7 +1,7 @@
 <md-toolbar color="primary">
   <span>Werlabs</span>
   <span class="spacer"></span>
-  <span><img *ngIf='photo' [src]="photo?.owner?.image" /></span>
+  <span><img *ngIf='photo' [src]="photo?.owner?.image" class="owner-img" /></span>
   <span class="owner-name">{{photo?.owner?.realname || photo?.owner?.username}}</span>
 </md-toolbar>
 <md-card class="example-card">
