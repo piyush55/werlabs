@@ -9,10 +9,12 @@ import { environment } from '../../environments/environment';
 export class PhotosService {
 
   private apiUrl: string = 'https://api.flickr.com/services/rest';
+  searchQuery: string = '';
     
   constructor(private http: Http) { }
 
   getPhotos(text, page): Observable<any> {
+    this.searchQuery = text;
     let params = new URLSearchParams();
     this.setCommonParams(params);
     params.set('method', 'flickr.photos.search');

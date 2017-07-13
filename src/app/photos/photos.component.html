@@ -2,7 +2,6 @@
   <span>Werlabs</span>
 </md-toolbar>
 <md-input-container class="search-input" [color]='warn'>
-  <span mdPrefix><md-icon>search</md-icon></span>
   <input mdInput [(ngModel)]="query" placeholder="Search photos by keyword">
   <md-hint *ngIf='errorMessage' class="error">{{errorMessage}}</md-hint>
 </md-input-container>

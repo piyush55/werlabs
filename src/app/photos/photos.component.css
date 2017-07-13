@@ -7,9 +7,14 @@
 }
 .search-input {
   margin-top: 10px;
+  width: 40%;
+  left: 25%;
+  right: 30%;
 }
 .error {
   color: red;
   font-size: 14px;
 }
-
+.mat-raised-button {
+  left: 25%;
+}

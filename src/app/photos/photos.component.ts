@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { PhotosService } from '../services/photos.service';
 import { MdSnackBar } from '@angular/material';
 
@@ -7,15 +7,25 @@ import { MdSnackBar } from '@angular/material';
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.css']
 })
-export class PhotosComponent {
+export class PhotosComponent implements AfterViewInit {
 
   private photos: any = [];
-  private query: string = '';
+  private query: string;
   private errorMessage: string = '';
   private page: number = 1;
 
-  constructor(private photosService: PhotosService, public snackBar: MdSnackBar) { }
+  constructor(private photosService: PhotosService, public snackBar: MdSnackBar) {
+    this.query = this.photosService.searchQuery;
+  }
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      if(this.query) {
+        this.getPhotos();
+      }
+    }, 0);
+  }
+  
   searchPhotos() {
     this.errorMessage = '';
     if(this.query) {
