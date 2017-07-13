@@ -11,6 +11,7 @@ export class PhotoDetailsComponent implements OnInit {
 
   private photo: any;
   private id: number;
+  private message: any = '';
   
   constructor(private photosService: PhotosService, private route: ActivatedRoute) {
     this.route.params.subscribe( params => this.id = params.id);
@@ -21,12 +22,18 @@ export class PhotoDetailsComponent implements OnInit {
   }
 
   getPhotoDetails() {
-    this.photosService.getPhoto(this.id).subscribe(photo => {
-      this.photo = photo;
-      this.photo['image'] = "https://farm"+this.photo.farm+".staticflickr.com/"+this.photo.server+"/"+this.photo.id+"_"+this.photo.secret+"_z.jpg"
-      let owner = this.photo.owner;
-      this.photo.owner['image'] = "http://farm"+owner.iconfarm+".staticflickr.com/"+owner.iconserver+"/buddyicons/"+owner.nsid+".jpg"
-      console.log(this.photo.owner);
+    this.photosService.getPhoto(this.id).subscribe(data => {
+      if(data.stat == 'ok') {
+        this.photo = data.photo;
+        this.photo['image'] = "https://farm"+this.photo.farm+".staticflickr.com/"+this.photo.server+"/"+this.photo.id+"_"+this.photo.secret+"_z.jpg";
+        let owner = this.photo.owner;
+        this.photo.owner['image'] = "http://farm"+owner.iconfarm+".staticflickr.com/"+owner.iconserver+"/buddyicons/"+owner.nsid+".jpg";
+      }
+      else {
+        if(data.message) {
+          this.message = data.message;
+        }
+      }
     });
   }
 

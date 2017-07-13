@@ -5,12 +5,12 @@
   <span class="owner-name">{{photo?.owner?.realname || photo?.owner?.username}}</span>
 </md-toolbar>
 <md-card class="example-card">
-  <md-card-header>
+  <md-card-header *ngIf='photo'>
     <md-card-title><h4>{{photo?.title._content}}</h4></md-card-title>
     <md-card-subtitle>Taken on {{photo?.dates.taken | date: 'medium' }}</md-card-subtitle>
   </md-card-header>
   <img md-card-image *ngIf='photo' [src]="photo?.image" />
-  <md-card-content>
+  <md-card-content *ngIf='photo'>
     <div class="left-panel" [innerHTML]="photo?.description._content"> 
     </div>
     <div class="right-panel">
@@ -25,5 +25,8 @@
       </div>
     </div>
     <div style="clear:both;"></div>
+  </md-card-content>
+  <md-card-content *ngIf='message'>
+    <h4>{{message}}</h4>
   </md-card-content>
 </md-card>
